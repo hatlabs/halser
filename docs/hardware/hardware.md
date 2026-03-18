@@ -118,9 +118,13 @@ A 120 Ω termination resistor can be enabled via a solder jumper on the back of 
 
 ## Status Indication
 
+### Power LED
+
+The red power LED (labeled **PWR**) is lit whenever 3.3 V power is present on the board. It indicates that the power supply is working but does not confirm that the ESP32-C3 is running.
+
 ### RGB LED
 
-The SK6805 RGB LED (GPIO 8) is software-controlled. The default firmware uses it as follows:
+The SK6805 RGB LED (GPIO 8) is software-controlled and confirms that the ESP32-C3 is executing firmware. The default firmware uses it as follows:
 
 - **Rainbow color cycle** — Board is running, waiting for serial data
 - **Brief off-blink** — NMEA 0183 sentence received

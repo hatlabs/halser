@@ -6,6 +6,7 @@ This section walks you through the initial setup of your HALSER board.
 
 - HALSER board
 - Power source: NMEA 2000 network or any 5–32 V DC supply
+- Panel connectors or cable glands for NMEA 2000, power, and any serial interfaces you plan to use (see [Enclosures](enclosures.md))
 - A waterproof enclosure (see [Enclosures](enclosures.md))
 - USB-C cable for programming
 - Development environment (see [Software](../software/software.md))
@@ -14,7 +15,7 @@ This section walks you through the initial setup of your HALSER board.
 
 1. **Wire power and NMEA 2000** — Connect your power source to the 4-pin terminal block. See [Connecting Power and NMEA 2000](connecting-power.md) for wiring details.
 
-2. **Verify power** — The RGB LED should light up when power is applied. The default firmware shows a rainbow animation.
+2. **Verify power** — The red power LED indicates that the board has power. If firmware is running, the RGB LED also lights up — with the default firmware it shows a rainbow animation, confirming the ESP32-C3 is operating correctly.
 
 3. **Set up your development environment** — HALSER is a development board. For most use cases, you will need to build and flash custom firmware. See [Software Overview](../software/software.md) for options.
 

@@ -35,4 +35,4 @@ HALSER has a CAN termination resistor (120 Ω) that can be enabled via a solder 
 
 ## Verifying Power
 
-When power is applied, the RGB LED should light up. With the default firmware installed, the LED shows a rainbow color cycle, indicating the board is running and waiting for serial data.
+When power is applied, the **red power LED** lights up, indicating that the 3.3 V rail is active. If firmware is running on the ESP32-C3, the **RGB LED** also turns on — with the default firmware it shows a rainbow color cycle, confirming the microcontroller is operating correctly.
