@@ -2,7 +2,7 @@
 
 HALSER is an ESP32-C3 based development board designed for marine serial interface applications. It bridges legacy serial devices — NMEA 0183 instruments, RS-232 equipment, and UART peripherals — to NMEA 2000 networks and WiFi.
 
-<!-- TODO: Add hero photo of the HALSER board -->
+![HALSER board v1.0.1](halser_top_render.jpg)
 
 !!! note "Shop Link"
     Purchase HALSER from the [Hat Labs web shop](https://shop.hatlabs.fi/products/halser).

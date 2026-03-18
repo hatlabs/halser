@@ -16,9 +16,17 @@ HALSER provides four serial interfaces for connecting different types of devices
 ## Important: Serial Receive Constraint
 
 !!! warning "One Receive Interface at a Time"
-    Only **one** serial interface can receive data at a time. The active receive interface is selected in firmware. By default, the RS-485 RX interface is active.
+    Only **one** serial interface can receive data at a time. The active receive interface is selected by the **RX SEL** jumper on the board. All interfaces **transmit** the same signal simultaneously.
 
-    All interfaces **transmit** the same signal simultaneously — data sent by the firmware appears on all TX interfaces at once.
+The **RX SEL** jumper has three positions:
+
+| Position | Active Receive Interface |
+|----------|------------------------|
+| **N** | NMEA 0183 (RS-485 RX) |
+| **R** | RS-232 |
+| **U** | UART |
+
+Place the jumper on the pin pair corresponding to the interface you want to use for receiving data.
 
 This design reflects the typical marine use case: a single instrument sends data to HALSER, which converts and forwards it to NMEA 2000 or WiFi.
 

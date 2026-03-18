@@ -44,7 +44,8 @@ The ESP32-C3 is a popular choice for IoT applications due to its low cost, WiFi 
 
 ## Connectors
 
-<!-- TODO: Add annotated top-side photo with connector labels -->
+![HALSER board top side](../halser_top_render.jpg)
+
 <!-- TODO: Add annotated bottom-side photo with jumper labels -->
 
 ### Terminal Block Connectors
@@ -65,6 +66,19 @@ The ESP32-C3 is a popular choice for IoT applications due to its low cost, WiFi 
 | I2C | 4 | 2.54 mm | I2C bus (VCC, SDA, SCL, GND) |
 | GPIO | varies | 2.54 mm | Available GPIO pins |
 | UART voltage | 2 | 2.54 mm | 3.3 V / 5 V selection jumper |
+| RX SEL | 3×2 | 2.54 mm | Receive interface selector (N = NMEA 0183 RS-485, R = RS-232, U = UART) |
+
+### Bottom-Side Pads
+
+The bottom of the board exposes additional pads:
+
+| Pad | Description |
+|-----|-------------|
+| i5V / iGND | Isolated 5 V output and ground |
+| i3V3 / iGND | Isolated 3.3 V output and ground |
+| VIN / GND | Direct access to input power |
+
+<!-- TODO: Verify isolated power pad usage and current limits -->
 
 ### USB
 
@@ -77,7 +91,7 @@ The ESP32-C3 is a popular choice for IoT applications due to its low cost, WiFi 
 | 0 | Test jig indicator | Reserved for production testing |
 | 1 | Hall effect sensor | On-board hall sensor for production testing |
 | 2 | UART1 TX | Serial transmit (directly drives RS-485 TX, RS-232 TX, and UART TX) |
-| 3 | UART1 RX | Serial receive (directly connects to RS-485 RX, RS-232 RX, or UART RX; active interface selected by transceiver enable logic) |
+| 3 | UART1 RX | Serial receive (routed to RS-485 RX, RS-232 RX, or UART RX via the RX SEL jumper) |
 | 4 | CAN TX | NMEA 2000 transmit via TWAI peripheral |
 | 5 | CAN RX | NMEA 2000 receive via TWAI peripheral |
 | 6 | I2C SDA | I2C data line |

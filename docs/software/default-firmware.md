@@ -65,7 +65,7 @@ The SensESP web UI provides:
 ## Limitations
 
 - Only handles the six NMEA 0183 sentence types listed above
-- Only receives on the RS-485 RX interface (cannot be changed without firmware modification)
+- Receives on whichever interface is selected by the RX SEL hardware jumper
 - One-directional: NMEA 0183 → NMEA 2000 only (no N2K → 0183 translation)
 - No AIS sentence support (VDM/VDO are ignored)
 

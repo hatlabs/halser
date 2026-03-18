@@ -6,7 +6,7 @@ Only **one** serial interface can receive data at a time. The active receive int
 
 ## Which serial interface is active by default?
 
-The RS-485 RX interface is the default receive interface in the pre-installed firmware.
+The active receive interface is selected by the **RX SEL** hardware jumper on the board. Set it to **N** for NMEA 0183 (RS-485), **R** for RS-232, or **U** for UART.
 
 ## What baud rate does HALSER use?
 
