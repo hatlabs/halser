@@ -1,0 +1,96 @@
+site_name: HALSER User Guide
+site_url: https://docs.hatlabs.fi/halser
+site_description: User guide for HALSER, an ESP32-C3 serial interface board for marine applications
+site_author: Hat Labs
+
+repo_url: https://github.com/hatlabs/HALSER-docs
+repo_name: hatlabs/HALSER-docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  logo: assets/hat_labs_logo.svg
+  favicon: assets/hat_labs_logo.svg
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.action.edit
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
+  - footnotes
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hatlabs
+
+nav:
+  - Introduction: index.md
+  - Getting Started:
+    - Overview: getting-started/getting-started.md
+    - Connecting Power and NMEA 2000: getting-started/connecting-power.md
+    - Enclosures and Panel Connectors: getting-started/enclosures.md
+  - Usage:
+    - Serial Interfaces Overview: usage/serial-interfaces.md
+    - NMEA 0183 (RS-485): usage/nmea-0183.md
+    - RS-232 Devices: usage/rs-232.md
+    - UART Devices: usage/uart.md
+  - Hardware:
+    - Hardware Description: hardware/hardware.md
+  - Software:
+    - Software Overview: software/software.md
+    - Custom Firmware Development: software/custom-firmware.md
+    - Default Firmware: software/default-firmware.md
+  - Appendices:
+    - Design Files and Schematics: appendices/design-files.md
+    - Hardware Revisions: appendices/hardware-revisions.md
+    - Errata: appendices/errata.md
+    - Resources: appendices/resources.md
+  - FAQ: faq.md
