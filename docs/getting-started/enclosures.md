@@ -3,11 +3,18 @@
 For use on a boat, HALSER should always be placed in a waterproof enclosure. The board is designed to fit standard 100×68×50 mm waterproof enclosures.
 
 <!-- TODO: Add photo of HALSER installed in enclosure -->
-<!-- TODO: Add link to recommended enclosure -->
 
-## Drilling Holes for Panel Connectors
+## Recommended Enclosure
 
-The enclosures typically do not have pre-drilled holes for connectors. When drilling holes, always use a conical or step drill bit (one that looks like a small metal Christmas tree). Standard metal drill bits may easily bite too hard and crack the enclosure wall.
+The easiest way to get started is the [Hat Labs pre-drilled enclosure](https://shop.hatlabs.fi/products/waterproof-enclosure-100x68x50-mm-with-flanges). It comes with 5 pre-drilled 13 mm holes and 3 PG7 blind plugs — no drilling required. The holes accept NMEA 2000 panel connectors, SP13 connectors, and PG7 cable glands directly.
+
+The enclosure is IP65-rated ABS with stainless steel (A4/AISI 316) screws and integrated wall-mount flanges.
+
+## Using a Generic Enclosure
+
+Any 100×68×50 mm waterproof enclosure will fit HALSER. If your enclosure does not have pre-drilled holes, you will need to drill them yourself.
+
+When drilling holes, always use a conical or step drill bit (one that looks like a small metal Christmas tree). Standard metal drill bits may easily bite too hard and crack the enclosure wall.
 
 When planning connector placement, leave sufficient room for tightening the connector nuts and for the connector body. If you are wall-mounting the enclosure, place the connectors facing down to minimize the risk of water ingress.
 

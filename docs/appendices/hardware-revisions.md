@@ -16,4 +16,4 @@ Silkscreen improvements and minor fixes.
 
 First published version.
 
-<!-- TODO: Link to schematic PDF: [HALSER-v1.0.0-schema.pdf](assets/HALSER-v1.0.0-schema.pdf) -->
+Schematics: [HALSER-schematics_v1.0.0.pdf](HALSER-schematics_v1.0.0.pdf)

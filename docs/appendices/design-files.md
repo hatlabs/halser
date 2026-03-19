@@ -7,9 +7,7 @@
 
 ## Schematics
 
-<!-- TODO: Export and embed schematic PDFs from KiCad for each hardware revision -->
-
-Schematics are available in the hardware repository. See [Hardware Revisions](hardware-revisions.md) for version-specific links.
+Schematics for each hardware revision are available on the [Hardware Revisions](hardware-revisions.md) page.
 
 ## License
 

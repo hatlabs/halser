@@ -32,8 +32,6 @@ The UART input is **5 V tolerant** regardless of the jumper setting.
 
 The UART interface is suitable for:
 
-- **Victron VE.Direct** — Raw UART at 19200 baud. Connect the VE.Direct cable's TX, RX, and GND wires directly to the UART terminal block. Set the jumper to 3.3 V.
-<!-- TODO: Verify VE.Direct voltage level and wiring details -->
-- **GPS modules** — Bare GPS receiver modules (e.g., u-blox NEO series) that output TTL-level NMEA sentences
-- **Serial sensors** — Temperature, pressure, or other sensors with UART output
-- **Microcontroller-to-microcontroller** — Direct communication with Arduino, ESP32, or other MCU boards
+- **Victron VE.Direct** — Raw UART at 19200 bit/s. Connect the VE.Direct cable's TX, RX, and GND wires directly to the UART terminal block. Set the jumper to 3.3 V.
+- **Serial sensors** — Sensors with UART I/O requiring galvanic isolation
+- **Microcontroller-to-microcontroller** — Direct communication with Arduino, ESP32, or other MCU boards when isolation is required

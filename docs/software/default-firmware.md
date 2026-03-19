@@ -41,7 +41,7 @@ The SensESP web UI provides:
 <!-- TODO: Add screenshots of the web UI -->
 
 - **WiFi configuration** — Connect to an existing network
-- **NMEA 0183 baud rate** — Default 4800 baud, configurable (requires restart)
+- **NMEA 0183 bit rate** — Default 4800 bit/s, configurable (requires restart)
 - **Signal K connection** — Configure Signal K server address
 - **Device info** — Firmware version, hostname, network status
 - **OTA update** — Upload new firmware over WiFi

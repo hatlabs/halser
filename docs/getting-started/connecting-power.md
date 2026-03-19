@@ -10,28 +10,22 @@ If you are connecting HALSER to an NMEA 2000 network, connect the four wires to 
 
 | Pin | Signal | NMEA 2000 Color |
 |-----|--------|-----------------|
-| 1   | Shield | Bare / drain    |
-| 2   | +12V   | Red             |
-| 3   | GND    | Black           |
-| 4   | CAN H  | White           |
-| 5   | CAN L  | Blue            |
+| 1   | GND    | Black           |
+| 2   | Vin    | Red             |
+| 3   | CAN H  | White           |
+| 4   | CAN L  | Blue            |
 
-<!-- TODO: Verify pin numbering against actual board silkscreen -->
+The NMEA 2000 bus voltage is nominally 12 V. HALSER's power input accepts 5–32 V, so it works directly on the bus.
 
-The board accepts 5–32 V input, matching the NMEA 2000 bus voltage range.
+!!! note "NMEA 2000 Shield"
+    Per the NMEA 2000 standard, the cable shield (bare/drain wire) must be left unconnected at device ends. Only connect the shield at the designated grounding point on the NMEA 2000 backbone.
 
 ## Powering Without NMEA 2000
 
-If you only need power (no CAN bus), connect your DC supply to the +12V and GND pins only. Any 5–32 V DC source is suitable.
+If you only need power (no CAN bus), connect your DC supply to pins 1 (GND) and 2 (Vin) only. Any 5–32 V DC source is suitable.
 
 <!-- TODO: Typical current consumption at 12V -->
 
-## CAN Bus Termination
-
-HALSER has a CAN termination resistor (120 Ω) that can be enabled via a solder jumper on the back of the board.
-
-!!! warning "NMEA 2000 Networks"
-    Do **not** enable the CAN termination resistor when connecting to a properly terminated NMEA 2000 network. NMEA 2000 networks have their own termination resistors at the backbone ends. Only enable HALSER's terminator if you are building a standalone CAN bus without external termination.
 
 ## Verifying Power
 
