@@ -2,15 +2,15 @@
 
 ## Can I use multiple serial interfaces at the same time?
 
-Only **one** serial interface can receive data at a time. The active receive interface is selected in firmware (RS-485 RX by default). All interfaces transmit the same signal simultaneously.
+Only **one** serial interface can receive data at a time. The active receive interface is selected by the **RX SEL** hardware jumper on the board. All interfaces transmit the same signal simultaneously.
 
 ## Which serial interface is active by default?
 
 The active receive interface is selected by the **RX SEL** hardware jumper on the board. Set it to **N** for NMEA 0183 (RS-485), **R** for RS-232, or **U** for UART.
 
-## What baud rate does HALSER use?
+## What bit rate does HALSER use?
 
-The default firmware uses 4800 baud (standard NMEA 0183). This is configurable via the web UI. AIS devices typically require 38400 baud.
+The default firmware uses 4800 bit/s (standard NMEA 0183). This is configurable via the web UI. AIS devices typically require 38400 bit/s.
 
 ## Can I use HALSER without an NMEA 2000 network?
 
@@ -26,7 +26,7 @@ Yes — that is the intended use. HALSER is a development board. See [Custom Fir
 
 ## Does the default firmware support AIS?
 
-No. The default firmware only parses six NMEA 0183 sentence types (GGA, RMC, VTG, HDG, VHW, DPT, MWV). AIS sentences (VDM, VDO) are silently ignored. Bridging AIS data requires [custom firmware](software/custom-firmware.md).
+No. The default firmware only parses seven NMEA 0183 sentence types (GGA, RMC, VTG, HDG, VHW, DPT, MWV). AIS sentences (VDM, VDO) are silently ignored. Bridging AIS data requires [custom firmware](software/custom-firmware.md).
 
 ## Is HALSER a bidirectional gateway?
 
@@ -40,4 +40,4 @@ The default firmware is one-directional: NMEA 0183 → NMEA 2000 only. Bidirecti
 
 <!-- TODO: Verify VE.Direct compatibility -->
 
-Victron VE.Direct uses raw UART at 19200 baud. It should be possible to connect a VE.Direct cable to HALSER's UART port (3.3 V jumper setting) and parse the VE.Direct protocol in custom firmware. This is not supported by the default firmware.
+Victron VE.Direct uses raw UART at 19200 bit/s. It should be possible to connect a VE.Direct cable to HALSER's UART port (3.3 V jumper setting) and parse the VE.Direct protocol in custom firmware. This is not supported by the default firmware.

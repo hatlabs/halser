@@ -64,7 +64,7 @@ The [HALSER default firmware](https://github.com/hatlabs/HALSER-default-firmware
 - NMEA 0183 sentence parsing (GGA, RMC, VTG, HDG, VHW, DPT, MWV)
 - NMEA 2000 message transmission
 - RGB LED status indication
-- Configurable baud rate via web UI
+- Configurable bit rate via web UI
 
 Clone and modify it to suit your needs.
 
@@ -108,7 +108,7 @@ void loop() {
 
 The default firmware does not handle AIS sentences (VDM/VDO). To bridge AIS data, you need custom firmware that:
 
-1. Receives NMEA 0183 on RS-485 RX at 38400 baud
+1. Receives NMEA 0183 on RS-485 RX at 38400 bit/s
 2. Parses or forwards VDM/VDO sentences
 3. Sends data via WiFi (Signal K, TCP, or UDP)
 
@@ -122,7 +122,7 @@ Connect a DS18B20 temperature sensor to the 1-Wire header and transmit PGN 13031
 
 <!-- TODO: Verify VE.Direct compatibility -->
 
-Victron VE.Direct uses raw UART at 19200 baud. Connect the VE.Direct cable to the UART terminal block (3.3 V jumper setting) and parse the VE.Direct text protocol in firmware.
+Victron VE.Direct uses raw UART at 19200 bit/s. Connect the VE.Direct cable to the UART terminal block (3.3 V jumper setting) and parse the VE.Direct text protocol in firmware.
 
 ## Programming
 

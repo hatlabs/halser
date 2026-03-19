@@ -1,45 +1,35 @@
 # Serial Interfaces Overview
 
-HALSER provides four serial interfaces for connecting different types of devices. This section describes the serial architecture and helps you choose the right interface for your application.
+HALSER provides three physical serial interfaces:
 
-<!-- TODO: Add serial architecture diagram showing all interfaces -->
+- **RS-485** — Differential signaling, standard for NMEA 0183
+- **RS-232** — Legacy serial voltage levels
+- **UART** — Raw TTL-level serial (3.3 V or 5 V, selectable via jumper)
 
-## Available Interfaces
+Each interface has its own terminal block connector on the board.
 
-| Interface | Connector | Signal Level | Typical Use |
-|-----------|-----------|-------------|-------------|
-| RS-485 RX | 3-pin terminal block | Differential | Receiving NMEA 0183 |
-| RS-485 TX | 3-pin terminal block | Differential | Sending NMEA 0183 |
-| RS-232 | 3-pin terminal block | ±12 V | Legacy serial devices |
-| UART | 3-pin terminal block | 3.3 V / 5 V (jumper) | TTL-level serial |
+<!-- TODO: Add serial architecture diagram -->
 
-## Important: Serial Receive Constraint
+## Transmit and Receive
 
-!!! warning "One Receive Interface at a Time"
-    Only **one** serial interface can receive data at a time. The active receive interface is selected by the **RX SEL** jumper on the board. All interfaces **transmit** the same signal simultaneously.
+**Transmit:** All three interfaces transmit simultaneously. The UART TX signal is converted to RS-485, RS-232, and TTL levels in parallel. In practice, you connect the transmit terminal block of whichever interface your receiving device expects.
 
-The **RX SEL** jumper has three positions:
+**Receive:** Only one interface can receive at a time, selected by the **RX SEL** hardware jumper:
 
 | Position | Active Receive Interface |
 |----------|------------------------|
-| **N** | NMEA 0183 (RS-485 RX) |
+| **N** | NMEA 0183 (RS-485) |
 | **R** | RS-232 |
 | **U** | UART |
 
-Place the jumper on the pin pair corresponding to the interface you want to use for receiving data.
+Place the jumper on the pin pair corresponding to the interface you want to receive on.
 
-This design reflects the typical marine use case: a single instrument sends data to HALSER, which converts and forwards it to NMEA 2000 or WiFi.
+!!! note
+    RS-485 has separate TX and RX terminal blocks since it uses differential signaling with separate driver and receiver chips. RS-232 and UART each have TX and RX on a single 3-pin terminal block.
 
-## Choosing an Interface
+## Using Different Bit Rates for RX and TX
 
-| Device Type | Recommended Interface | Notes |
-|------------|----------------------|-------|
-| NMEA 0183 instruments (wind, GPS, depth, heading) | [RS-485 RX](nmea-0183.md) | Standard for marine instruments |
-| AIS transponders | [RS-485 RX](nmea-0183.md) | RS-422 output is electrically compatible with RS-485 |
-| Older chart plotters, legacy marine equipment | [RS-232](rs-232.md) | For devices with DB-9 or similar RS-232 ports |
-| Victron VE.Direct devices | [UART](uart.md) | Raw UART at 19200 baud |
-| GPS modules (bare boards) | [UART](uart.md) | Most GPS modules output TTL UART |
-| General-purpose microcontrollers | [UART](uart.md) | Direct MCU-to-MCU communication |
+Normally, the same bit rate is used for transmit and receive. However, since UART0 is available (USB CDC handles the console), custom firmware can assign UART0 to the TX pins and UART1 to the RX pins (or vice versa) via the ESP32-C3 GPIO matrix, allowing independent bit rates. For example, you could receive AIS at 38400 bit/s on RS-485 while transmitting NMEA 0183 at 4800 bit/s.
 
 ## Interface Details
 

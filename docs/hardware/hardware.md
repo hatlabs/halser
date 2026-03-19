@@ -14,7 +14,7 @@ The ESP32-C3 is a popular choice for IoT applications due to its low cost, WiFi 
 
 ## Board Functional Blocks
 
-<!-- TODO: Add annotated photo/diagram of the board showing functional blocks -->
+![HALSER functional blocks](HALSER-func.jpg)
 
 1. **Power input and protection** — 5–32 V input through the NMEA 2000 connector. Protection includes a 500 mA self-resetting fuse, reverse polarity protection diode, and overvoltage/ESD protection TVS diodes with two-stage noise filtering.
 
@@ -22,83 +22,60 @@ The ESP32-C3 is a popular choice for IoT applications due to its low cost, WiFi 
 
 3. **CAN transceiver** — Provides the physical layer for NMEA 2000 communication. Connected to the ESP32-C3 TWAI (CAN) peripheral.
 
-4. **RS-485 RX transceiver** — Receives differential RS-485 signals (NMEA 0183 input).
+4. **Isolation transformer and digital isolator** — Galvanic isolation between the serial interfaces and the ESP32-C3, preventing ground loops and providing protection against voltage spikes.
 
-5. **RS-485 TX transceiver** — Transmits differential RS-485 signals (NMEA 0183 output).
+5. **RS-485 RX transceiver** — Receives differential RS-485 signals (NMEA 0183 input).
 
-6. **RS-232 transceiver** — Level conversion for RS-232 serial communication.
+6. **RS-485 TX transceiver** — Transmits differential RS-485 signals (NMEA 0183 output).
 
-7. **UART level shifter** — Voltage translation for the UART interface. Output voltage selectable between 3.3 V and 5 V via jumper.
+7. **RS-232 transceiver** — Level conversion for RS-232 serial communication.
 
-8. **ESP32-C3 module** — The main microcontroller with integrated WiFi antenna.
+8. **UART level shifter** — Voltage translation for the UART interface. Output voltage selectable between 3.3 V and 5 V via jumper.
 
-9. **1-Wire interface** — ESD-protected and RF-filtered 1-Wire bus for temperature sensors and similar devices.
+9. **ESP32-C3 module** — The main microcontroller with integrated WiFi antenna.
 
-10. **I2C interface** — Standard I2C bus with pull-up resistors.
+10. **RGB LED** — SK6805 addressable LED for status indication.
 
-11. **USB-C** — USB interface for programming and serial communication. Uses USB CDC (Communications Device Class) mode.
+11. **Reset and user-defined push buttons** — Reset button pulls the ESP32-C3 enable pin low. The user button (GPIO 9) is active low with an internal pull-up and can be used for any purpose in firmware.
 
-12. **RGB LED** — SK6805 addressable LED for status indication.
-
-13. **Button** — General-purpose push button connected to GPIO 9.
+12. **Hall effect sensor** — On-board hall sensor (GPIO 1) that can be activated with an external magnet through the enclosure wall, providing a button-like interface without compromising the waterproof seal.
 
 ## Connectors
 
-![HALSER board top side](../halser_top_render.jpg)
+![HALSER connectors](HALSER-conx.jpg)
 
-<!-- TODO: Add annotated bottom-side photo with jumper labels -->
-
-### Terminal Block Connectors
-
-| Connector | Pins | Type | Description |
-|-----------|------|------|-------------|
-| NMEA 2000 | 4 | Phoenix MC 3.81 compatible | Power input and CAN bus |
-| RS-485 TX | 3 | Phoenix MC 3.81 compatible | NMEA 0183 transmit |
-| RS-485 RX | 3 | Phoenix MC 3.81 compatible | NMEA 0183 receive |
-| RS-232 | 3 | Phoenix MC 3.81 compatible | Legacy serial |
-| UART | 3 | Phoenix MC 3.81 compatible | TTL-level serial |
-
-### Headers
-
-| Header | Pins | Pitch | Description |
-|--------|------|-------|-------------|
-| 1-Wire | 3 | 2.54 mm | 1-Wire bus (VCC, DQ, GND) |
-| I2C | 4 | 2.54 mm | I2C bus (VCC, SDA, SCL, GND) |
-| GPIO | varies | 2.54 mm | Available GPIO pins |
-| UART voltage | 2 | 2.54 mm | 3.3 V / 5 V selection jumper |
-| RX SEL | 3×2 | 2.54 mm | Receive interface selector (N = NMEA 0183 RS-485, R = RS-232, U = UART) |
-
-### Bottom-Side Pads
-
-The bottom of the board exposes additional pads:
-
-| Pad | Description |
-|-----|-------------|
-| i5V / iGND | Isolated 5 V output and ground |
-| i3V3 / iGND | Isolated 3.3 V output and ground |
-| VIN / GND | Direct access to input power |
-
-<!-- TODO: Verify isolated power pad usage and current limits -->
-
-### USB
-
-- **USB-C** — For programming (firmware upload) and serial communication. Supports USB CDC mode for virtual serial port access.
+1. **NMEA 2000** — 4-pin pluggable terminal block (Phoenix MC 3.81 compatible). Power input and CAN bus.
+2. **NMEA 0183 TX** — 3-pin pluggable terminal block. RS-485 transmit.
+3. **NMEA 0183 RX** — 3-pin pluggable terminal block. RS-485 receive.
+4. **RS-232** — 3-pin pluggable terminal block. Legacy serial interface.
+5. **UART** — 3-pin pluggable terminal block. TTL-level serial (3.3 V or 5 V).
+6. **RX selection jumper** — Selects the active receive interface (N = NMEA 0183 RS-485, R = RS-232, U = UART).
+7. **UART voltage selection jumper** — Sets UART output voltage to 3.3 V or 5 V.
+8. **GPIO** — 2.54 mm header breaking out available GPIO pins.
+9. **USB-C** — Programming and serial communication via USB CDC.
+10. **1-Wire** — 3-pin 2.54 mm header (GND, 3V3, DQ). ESD-protected and RF-filtered.
+11. **I2C** (×2) — 4-pin 2.54 mm female header (GND, 3V3, SCL, SDA) and one unpopulated footprint for a second I2C connector.
+12. **Vin** — Protected and filtered input voltage connector, for reusing the input power for external devices.
+13. **Proto pads** — Unused pads for custom expansion.
+14. **Proto pads (isolated)** — Unused pads on the isolated board section for custom expansion.
 
 ## GPIO Reference
 
 | GPIO | Function | Notes |
 |------|----------|-------|
-| 0 | Test jig indicator | Reserved for production testing |
-| 1 | Hall effect sensor | On-board hall sensor for production testing |
-| 2 | UART1 TX | Serial transmit (directly drives RS-485 TX, RS-232 TX, and UART TX) |
-| 3 | UART1 RX | Serial receive (routed to RS-485 RX, RS-232 RX, or UART RX via the RX SEL jumper) |
+| 0 | Available | |
+| 1 | Hall effect sensor | On-board hall sensor |
+| 2 | Serial TX | Default serial transmit. Can be remapped via GPIO matrix |
+| 3 | Serial RX | Default serial receive. Can be remapped via GPIO matrix |
 | 4 | CAN TX | NMEA 2000 transmit via TWAI peripheral |
 | 5 | CAN RX | NMEA 2000 receive via TWAI peripheral |
 | 6 | I2C SDA | I2C data line |
 | 7 | I2C SCL | I2C clock line |
 | 8 | RGB LED | SK6805 addressable LED data line |
-| 9 | Button | User push button (active low with pull-up) |
+| 9 | User button | User-programmable push button (active low with pull-up) |
 | 10 | 1-Wire | 1-Wire data line (DQ) |
+| 20 | Available | Directly available on the GPIO header |
+| 21 | Available | Directly available on the GPIO header |
 
 !!! warning "Pin Assignment Differences"
     HALSER's GPIO pin assignments differ from generic ESP32-C3 development kits. If you are adapting existing code, always verify pin assignments against this table.
@@ -110,11 +87,19 @@ The bottom of the board exposes additional pads:
 - **Regulation:** Switching power supply (3.3 V output)
 <!-- TODO: Typical current consumption at 12V with WiFi active -->
 
+## Galvanic Isolation
+
+The serial interfaces (RS-485, RS-232, UART) are galvanically isolated from the ESP32-C3 and the NMEA 2000 bus. The isolation barrier runs across the board as shown below, separating the isolated serial section (left) from the non-isolated microcontroller section (right).
+
+![HALSER isolation barrier](HALSER-isolation.jpg)
+
+The isolation is implemented using a digital isolator for the serial signals and an isolation transformer for powering the isolated section. This prevents ground loops when connecting to external devices and provides protection against voltage spikes on the serial interfaces.
+
 ## NMEA 2000
 
 NMEA 2000 is a communication standard for marine electronics based on Controller Area Network (CAN bus). HALSER's CAN interface operates at 250 kbps, the standard NMEA 2000 bit rate.
 
-A 120 Ω termination resistor can be enabled via a solder jumper on the back of the board. Do not enable this when connecting to a properly terminated NMEA 2000 network.
+HALSER does not include a CAN bus termination resistor. If you need termination for a standalone CAN bus (not connected to a properly terminated NMEA 2000 network), add an external 120 Ω resistor between CAN H and CAN L.
 
 ## Status Indication
 
@@ -143,9 +128,9 @@ The 1-Wire header provides:
 
 | Pin | Signal |
 |-----|--------|
-| 1   | VCC (3.3 V) |
-| 2   | DQ (data) |
-| 3   | GND |
+| 1   | GND |
+| 2   | 3.3 V |
+| 3   | DQ (data) |
 
 ## I2C
 
@@ -155,7 +140,7 @@ The I2C header provides:
 
 | Pin | Signal |
 |-----|--------|
-| 1   | VCC (3.3 V) |
-| 2   | SDA |
+| 1   | GND |
+| 2   | 3.3 V |
 | 3   | SCL |
-| 4   | GND |
+| 4   | SDA |

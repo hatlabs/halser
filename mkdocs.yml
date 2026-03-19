@@ -3,8 +3,8 @@ site_url: https://docs.hatlabs.fi/halser
 site_description: User guide for HALSER, an ESP32-C3 serial interface board for marine applications
 site_author: Hat Labs
 
-repo_url: https://github.com/hatlabs/HALSER-docs
-repo_name: hatlabs/HALSER-docs
+repo_url: https://github.com/hatlabs/halser
+repo_name: hatlabs/halser
 edit_uri: edit/main/docs/
 
 theme:
