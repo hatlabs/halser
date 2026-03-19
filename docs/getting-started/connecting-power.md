@@ -4,7 +4,7 @@ HALSER is powered through the 4-pin NMEA 2000 terminal block. The same connector
 
 ## Powering via NMEA 2000
 
-If you are connecting HALSER to an NMEA 2000 network, connect the four wires to the pluggable terminal block as follows:
+If you are connecting HALSER to an NMEA 2000 network, connect the NMEA 2000 cable to the pluggable terminal block as follows:
 
 <!-- TODO: Add photo of wired NMEA 2000 connector with labeled pins -->
 

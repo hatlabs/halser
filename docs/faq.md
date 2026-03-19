@@ -2,7 +2,7 @@
 
 ## Can I use multiple serial interfaces at the same time?
 
-Only **one** serial interface can receive data at a time. The active receive interface is selected in firmware (RS-485 RX by default). All interfaces transmit the same signal simultaneously.
+Only **one** serial interface can receive data at a time. The active receive interface is selected by the **RX SEL** hardware jumper on the board. All interfaces transmit the same signal simultaneously.
 
 ## Which serial interface is active by default?
 
@@ -26,7 +26,7 @@ Yes — that is the intended use. HALSER is a development board. See [Custom Fir
 
 ## Does the default firmware support AIS?
 
-No. The default firmware only parses six NMEA 0183 sentence types (GGA, RMC, VTG, HDG, VHW, DPT, MWV). AIS sentences (VDM, VDO) are silently ignored. Bridging AIS data requires [custom firmware](software/custom-firmware.md).
+No. The default firmware only parses seven NMEA 0183 sentence types (GGA, RMC, VTG, HDG, VHW, DPT, MWV). AIS sentences (VDM, VDO) are silently ignored. Bridging AIS data requires [custom firmware](software/custom-firmware.md).
 
 ## Is HALSER a bidirectional gateway?
 

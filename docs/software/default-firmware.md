@@ -30,7 +30,7 @@ On first boot, the firmware creates a WiFi access point:
 <!-- TODO: Confirm default SSID, password, and IP address -->
 
 - **SSID:** `halser-XXXXXX` (where XXXXXX is derived from the MAC address)
-- **IP address:** TODO
+- **IP address:** <!-- TODO: Confirm default IP address -->
 
 Connect to the access point and open the web UI in a browser to configure WiFi client mode and other settings.
 
@@ -64,7 +64,7 @@ The SensESP web UI provides:
 
 ## Limitations
 
-- Only handles the six NMEA 0183 sentence types listed above
+- Only handles the seven NMEA 0183 sentence types listed above
 - Receives on whichever interface is selected by the RX SEL hardware jumper
 - One-directional: NMEA 0183 → NMEA 2000 only (no N2K → 0183 translation)
 - No AIS sentence support (VDM/VDO are ignored)
