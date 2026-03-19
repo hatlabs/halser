@@ -63,7 +63,7 @@ The ESP32-C3 is a popular choice for IoT applications due to its low cost, WiFi 
 
 | GPIO | Function | Notes |
 |------|----------|-------|
-| 0 | Available | Used as test jig indicator in default firmware |
+| 0 | Available | |
 | 1 | Hall effect sensor | On-board hall sensor |
 | 2 | Serial TX | Default serial transmit. Can be remapped via GPIO matrix |
 | 3 | Serial RX | Default serial receive. Can be remapped via GPIO matrix |
