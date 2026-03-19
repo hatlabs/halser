@@ -30,7 +30,7 @@ On first boot, the firmware creates a WiFi access point:
 <!-- TODO: Confirm default SSID, password, and IP address -->
 
 - **SSID:** `halser-XXXXXX` (where XXXXXX is derived from the MAC address)
-- **IP address:** <!-- TODO: Confirm default IP address -->
+- **IP address:** 192.168.4.1
 
 Connect to the access point and open the web UI in a browser to configure WiFi client mode and other settings.
 

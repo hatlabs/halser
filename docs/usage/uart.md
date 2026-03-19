@@ -11,11 +11,9 @@ Connect the device to the UART 3-pin terminal block:
 
 | Pin | Signal | Description |
 |-----|--------|-------------|
-| 1   | TX     | HALSER transmit → device receive |
+| 1   | GND    | Signal ground |
 | 2   | RX     | Device transmit → HALSER receive |
-| 3   | GND    | Signal ground |
-
-<!-- TODO: Verify pin ordering against board silkscreen -->
+| 3   | TX     | HALSER transmit → device receive |
 
 ## Voltage Selection
 

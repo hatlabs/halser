@@ -29,7 +29,7 @@ Place the jumper on the pin pair corresponding to the interface you want to rece
 
 ## Using Different Bit Rates for RX and TX
 
-Normally, the same bit rate is used for transmit and receive. However, since UART0 is available (USB CDC handles the console), custom firmware can assign UART0 to the TX pins and UART1 to the RX pins (or vice versa), allowing independent bit rates. For example, you could receive AIS at 38400 bit/s on RS-485 while transmitting NMEA 0183 at 4800 bit/s.
+Normally, the same bit rate is used for transmit and receive. However, since UART0 is available (USB CDC handles the console), custom firmware could in principle assign UART0 to the TX pins and UART1 to the RX pins (or vice versa) via the ESP32-C3 GPIO matrix, allowing independent bit rates. For example, you could receive AIS at 38400 bit/s on RS-485 while transmitting NMEA 0183 at 4800 bit/s. This has not been tested.
 
 ## Interface Details
 
