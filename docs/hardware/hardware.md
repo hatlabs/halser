@@ -44,6 +44,9 @@ The ESP32-C3 is a popular choice for IoT applications due to its low cost, WiFi 
 
 ![HALSER connectors](HALSER-conx.jpg)
 
+!!! tip "Identifying Pin 1"
+    Pin 1 is marked on the diagram above with a red-white dot. On the physical board, each connector footprint has pin number labels and a corner marker on the silkscreen indicating Pin 1.
+
 1. **NMEA 2000** — 4-pin pluggable terminal block (Phoenix MC 3.81 compatible). Power input and CAN bus.
 2. **NMEA 0183 TX** — 3-pin pluggable terminal block. RS-485 transmit.
 3. **NMEA 0183 RX** — 3-pin pluggable terminal block. RS-485 receive.
