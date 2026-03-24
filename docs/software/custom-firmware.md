@@ -102,21 +102,25 @@ void loop() {
 }
 ```
 
-## Example Use Cases
+## Example Projects
 
-### AIS Receiver Bridge
+These ready-to-use firmware projects demonstrate what you can build with HALSER. Each is a complete SensESP application with WiFi, web UI, Signal K output, NMEA 2000 integration, and OTA updates.
 
-The default firmware does not handle AIS sentences (VDM/VDO). To bridge AIS data, you need custom firmware that:
+### Wind Instrument Gateway
 
-1. Receives NMEA 0183 on RS-485 RX at 38400 bit/s
-2. Parses or forwards VDM/VDO sentences
-3. Sends data via WiFi (Signal K, TCP, or UDP)
+Bridges an [Autonnic A5120](https://autonnic.com/a5120/) ultrasonic wind instrument to NMEA 2000 and Signal K. Receives apparent wind data via NMEA 0183 at 4800 bit/s (RS-232) and transmits PGN 130306 (Wind Data) on the NMEA 2000 bus. Sensor parameters (reference angle, damping, repetition rate) are configurable via the web UI. Optional OLED display shows live wind speed and angle.
 
-<!-- TODO: Link to example AIS firmware or provide more detailed guidance -->
+Source code and full documentation: [HALSER Wind Interface on GitHub](https://github.com/hatlabs/HALSER-wind-interface)
 
-### 1-Wire Temperature Sensor to NMEA 2000
+### AIS Transponder Gateway
 
-Connect a DS18B20 temperature sensor to the 1-Wire header and transmit PGN 130312 (Temperature) on the NMEA 2000 bus. The SensESP framework has built-in support for both 1-Wire sensors and NMEA 2000 temperature messages.
+Bridges a [Matsutec HA-102](http://www.matsutec.com.cn/) AIS transponder to NMEA 2000 and Signal K. Decodes AIS messages (Class A/B position reports, static data, safety messages, Aids to Navigation) received via NMEA 0183 at 38400 bit/s (RS-232) and forwards them as standard NMEA 2000 PGNs. The transponder's MMSI, static ship data, and voyage data are configurable via the web UI. Supports receive-only mode, bidirectional Signal K sync for voyage data, and optional OLED display.
+
+Source code and full documentation: [HALSER AIS Interface on GitHub](https://github.com/hatlabs/HALSER-ais-interface)
+
+## Project Ideas
+
+These are conceptual starting points — no ready-made firmware exists for them yet.
 
 ### Victron VE.Direct Integration
 
