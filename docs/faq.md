@@ -16,10 +16,6 @@ The default firmware uses 4800 bit/s (standard NMEA 0183). This is configurable 
 
 Yes. HALSER can operate as a WiFi-only device with Signal K output. You still need to provide 5–32 V power through the NMEA 2000 connector's power pins (CAN bus wires are optional).
 
-## Does HALSER support Bluetooth?
-
-No. The ESP32-C3 chip supports BLE, but HALSER's firmware and antenna design focus on WiFi. Bluetooth is not exposed or supported.
-
 ## Can I write my own firmware?
 
 Yes — that is the intended use. HALSER is a development board. See [Custom Firmware Development](software/custom-firmware.md) for details on setting up a development environment and building firmware.
