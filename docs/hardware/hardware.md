@@ -7,7 +7,7 @@ HALSER is based on the ESP32-C3, a single-core 32-bit RISC-V microcontroller by 
 - **CPU:** 160 MHz RISC-V single-core processor
 - **Flash:** 4 MB
 - **WiFi:** 802.11 b/g/n (2.4 GHz)
-- **Bluetooth:** Not available (ESP32-C3 supports BLE, but HALSER does not expose it)
+- **Bluetooth:** Bluetooth LE 5
 - **GPIO:** 11 usable pins (see [GPIO Reference](#gpio-reference) below)
 
 The ESP32-C3 is a popular choice for IoT applications due to its low cost, WiFi support, and compatibility with the Arduino and ESP-IDF ecosystems.
